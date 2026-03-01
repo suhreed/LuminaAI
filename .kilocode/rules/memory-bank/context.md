@@ -1,10 +1,10 @@
-# Active Context: Next.js Starter Template
+# Active Context: Lumina AI – AI Architect & Ghostwriter
 
 ## Current State
 
-**Template Status**: ✅ Ready for development
+**App Status**: ✅ Fully built and deployed
 
-The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. It's ready for AI-assisted expansion to build any type of application.
+Lumina AI is a complete AI-powered mobile web application for writing books. It uses the Gemini 2.5 Flash model via REST API to help users brainstorm, outline, and write full manuscripts chapter by chapter.
 
 ## Recently Completed
 
@@ -14,74 +14,77 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] ESLint configuration
 - [x] Memory bank documentation
 - [x] Recipe system for common features
+- [x] **Lumina AI full application build**
+  - [x] Data types (Book, Chapter, ChapterOutline, AppSettings, AppView)
+  - [x] localStorage utilities (CRUD for books and settings)
+  - [x] Gemini REST API service (outline generation, outline chat, chapter writing)
+  - [x] Export utilities (Markdown .md and PDF via html2pdf.js)
+  - [x] SettingsModal (API key management with show/hide)
+  - [x] BookForm (create/edit book metadata: title, topic, genre, language)
+  - [x] BookList (home screen with status badges, delete)
+  - [x] OutlineEditor (AI generation, chat refinement, manual editing, approve flow)
+  - [x] ManuscriptWriter (chapter nav, AI ghostwriting, manual editing, export)
+  - [x] BookDashboard (progress tracking, chapter quick-access)
+  - [x] Main page routing (view-based SPA navigation)
+  - [x] Mobile-first dark theme CSS
 
 ## Current Structure
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
-| `src/app/layout.tsx` | Root layout | ✅ Ready |
-| `src/app/globals.css` | Global styles | ✅ Ready |
+| `src/app/page.tsx` | Main SPA router | ✅ Ready |
+| `src/app/layout.tsx` | Root layout with Inter font | ✅ Ready |
+| `src/app/globals.css` | Mobile-first dark theme | ✅ Ready |
+| `src/types/index.ts` | TypeScript interfaces | ✅ Ready |
+| `src/lib/storage.ts` | localStorage CRUD | ✅ Ready |
+| `src/lib/gemini.ts` | Gemini REST API calls | ✅ Ready |
+| `src/lib/export.ts` | Markdown + PDF export | ✅ Ready |
+| `src/components/SettingsModal.tsx` | API key settings | ✅ Ready |
+| `src/components/BookForm.tsx` | Create/edit book metadata | ✅ Ready |
+| `src/components/BookList.tsx` | Home screen book list | ✅ Ready |
+| `src/components/OutlineEditor.tsx` | AI outline editor with chat | ✅ Ready |
+| `src/components/ManuscriptWriter.tsx` | Chapter-by-chapter writer | ✅ Ready |
+| `src/components/BookDashboard.tsx` | Book overview & progress | ✅ Ready |
 | `.kilocode/` | AI context & recipes | ✅ Ready |
 
-## Current Focus
+## App Features
 
-The template is ready. Next steps depend on user requirements:
+### 📚 Project Management
+- Multiple book projects with localStorage persistence
+- Custom metadata: Title, Topic/Premise, Genre, Target Language
+- Status tracking: draft → outlining → writing → complete
 
-1. What type of application to build
-2. What features are needed
-3. Design/branding preferences
+### 🗺️ AI-Powered Outlining
+- Auto-generate chapter outlines via Gemini 2.5 Flash
+- Interactive chat to refine outlines ("Add a plot twist in Chapter 3")
+- Manual chapter editing (title + summary)
+- Approve outline to unlock writing phase
 
-## Quick Start Guide
+### ✍️ Smart Manuscript Writing
+- Chapter-by-chapter interface with visual progress
+- AI ghostwriting with full narrative context
+- Manual editing with save/cancel
+- Progress bar and chapter status indicators
 
-### To add a new page:
+### 📤 Export Options
+- Markdown (.md) export
+- PDF export via html2pdf.js with title page and chapter breaks
 
-Create a file at `src/app/[route]/page.tsx`:
-```tsx
-export default function NewPage() {
-  return <div>New page content</div>;
-}
-```
+### 🔐 API Key Management
+- Bring-your-own Gemini API key
+- Stored in localStorage only, never sent to any server
 
-### To add components:
+## Tech Stack Additions
 
-Create `src/components/` directory and add components:
-```tsx
-// src/components/ui/Button.tsx
-export function Button({ children }: { children: React.ReactNode }) {
-  return <button className="px-4 py-2 bg-blue-600 text-white rounded">{children}</button>;
-}
-```
-
-### To add a database:
-
-Follow `.kilocode/recipes/add-database.md`
-
-### To add API routes:
-
-Create `src/app/api/[route]/route.ts`:
-```tsx
-import { NextResponse } from "next/server";
-
-export async function GET() {
-  return NextResponse.json({ message: "Hello" });
-}
-```
-
-## Available Recipes
-
-| Recipe | File | Use Case |
-|--------|------|----------|
-| Add Database | `.kilocode/recipes/add-database.md` | Data persistence with Drizzle + SQLite |
-
-## Pending Improvements
-
-- [ ] Add more recipes (auth, email, etc.)
-- [ ] Add example components
-- [ ] Add testing setup recipe
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `lucide-react` | 0.575.0 | Icons |
+| `html2pdf.js` | 0.14.0 | PDF generation |
+| `@google/generative-ai` | 0.24.1 | Gemini SDK (not used directly, REST API used instead) |
 
 ## Session History
 
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-03-01 | Built complete Lumina AI application |
