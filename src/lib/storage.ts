@@ -42,12 +42,12 @@ export function deleteBook(id: string): void {
 // ── Settings ───────────────────────────────────────────────────────────────
 
 export function getSettings(): AppSettings {
-  if (typeof window === 'undefined') return { geminiApiKey: '' };
+  if (typeof window === 'undefined') return { geminiApiKey: '', theme: 'dark' };
   try {
     const raw = localStorage.getItem(SETTINGS_KEY);
-    return raw ? (JSON.parse(raw) as AppSettings) : { geminiApiKey: '' };
+    return raw ? (JSON.parse(raw) as AppSettings) : { geminiApiKey: '', theme: 'dark' };
   } catch {
-    return { geminiApiKey: '' };
+    return { geminiApiKey: '', theme: 'dark' };
   }
 }
 

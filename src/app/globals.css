@@ -10,9 +10,39 @@ html {
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
+/* Theme CSS Variables */
+:root {
+  /* Dark theme (default) */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #171717;
+  --bg-tertiary: #262626;
+  --text-primary: #ffffff;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --border-color: #404040;
+  --border-hover: #525252;
+  --scrollbar-thumb: #404040;
+  --scrollbar-hover: #525252;
+  --theme-color: #0a0a0a;
+}
+
+:root.light {
+  --bg-primary: #fafafa;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #e5e5e5;
+  --text-primary: #171717;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --border-color: #d4d4d4;
+  --border-hover: #a3a3a3;
+  --scrollbar-thumb: #a3a3a3;
+  --scrollbar-hover: #737373;
+  --theme-color: #ffffff;
+}
+
 body {
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   overscroll-behavior: none;
 }
 
@@ -21,7 +51,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Custom scrollbar for dark theme */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
   height: 4px;
@@ -32,18 +62,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #404040;
+  background: var(--scrollbar-thumb);
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #525252;
+  background: var(--scrollbar-hover);
 }
 
-/* Select element dark styling */
+/* Select element styling */
 select option {
-  background-color: #171717;
-  color: #ffffff;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 /* Prevent text selection on buttons */

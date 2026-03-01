@@ -27,6 +27,12 @@ Lumina AI is a complete AI-powered mobile web application for writing books. It 
   - [x] BookDashboard (progress tracking, chapter quick-access)
   - [x] Main page routing (view-based SPA navigation)
   - [x] Mobile-first dark theme CSS
+  - [x] **Theme switching (dark/light mode)**
+    - [x] CSS variables for theming in globals.css
+    - [x] ThemeProvider component for state management
+    - [x] Theme toggle in SettingsModal
+    - [x] Theme toggle in BookList header
+    - [x] All components updated to use CSS variables
 
 ## Current Structure
 
@@ -45,6 +51,8 @@ Lumina AI is a complete AI-powered mobile web application for writing books. It 
 | `src/components/OutlineEditor.tsx` | AI outline editor with chat | ✅ Ready |
 | `src/components/ManuscriptWriter.tsx` | Chapter-by-chapter writer | ✅ Ready |
 | `src/components/BookDashboard.tsx` | Book overview & progress | ✅ Ready |
+| `src/components/ThemeProvider.tsx` | Theme context provider | ✅ Ready |
+| `src/lib/useTheme.ts` | Theme hook | ✅ Ready |
 | `.kilocode/` | AI context & recipes | ✅ Ready |
 
 ## App Features
@@ -88,3 +96,4 @@ Lumina AI is a complete AI-powered mobile web application for writing books. It 
 |------|---------|
 | Initial | Template created with base setup |
 | 2026-03-01 | Built complete Lumina AI application |
+| 2026-03-01 | Added dark/light theme switching |

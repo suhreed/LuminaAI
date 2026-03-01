@@ -137,15 +137,15 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-950">
+    <div className="flex flex-col min-h-screen bg-[var(--bg-primary)]">
       {/* Header */}
-      <header className="flex items-center gap-3 px-4 py-4 border-b border-neutral-800 flex-shrink-0">
-        <button onClick={onBack} className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors">
+      <header className="flex items-center gap-3 px-4 py-4 border-b border-[var(--border-color)] flex-shrink-0">
+        <button onClick={onBack} className="p-2 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)] transition-colors">
           <ArrowLeft size={20} />
         </button>
         <div className="flex-1 min-w-0">
-          <h1 className="text-base font-semibold text-white truncate">{book.title}</h1>
-          <p className="text-xs text-neutral-500">Outline Editor</p>
+          <h1 className="text-base font-semibold text-[var(--text-primary)] truncate">{book.title}</h1>
+          <p className="text-xs text-[var(--text-muted)]">Outline Editor</p>
         </div>
         {outline.length > 0 && (
           <button
@@ -171,11 +171,11 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
         {isGenerating ? (
           <div className="flex flex-col items-center justify-center py-20 gap-3">
             <Loader2 size={32} className="text-violet-400 animate-spin" />
-            <p className="text-neutral-400 text-sm">Generating your outline...</p>
+            <p className="text-[var(--text-muted)] text-sm">Generating your outline...</p>
           </div>
         ) : outline.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-16 gap-4">
-            <p className="text-neutral-500 text-sm">No outline yet</p>
+            <p className="text-[var(--text-muted)] text-sm">No outline yet</p>
             <button
               onClick={handleGenerateOutline}
               className="flex items-center gap-2 bg-violet-600 hover:bg-violet-500 text-white text-sm font-medium px-4 py-2.5 rounded-xl transition-colors"
@@ -187,13 +187,13 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
         ) : (
           <>
             <div className="flex items-center justify-between mb-3">
-              <p className="text-xs text-neutral-500 font-medium uppercase tracking-wider">
+              <p className="text-xs text-[var(--text-muted)] font-medium uppercase tracking-wider">
                 {outline.length} Chapters
               </p>
               <button
                 onClick={handleGenerateOutline}
                 disabled={isGenerating}
-                className="flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white transition-colors"
+                className="flex items-center gap-1.5 text-xs text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
               >
                 <RefreshCw size={13} />
                 Regenerate
@@ -201,27 +201,27 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
             </div>
 
             {outline.map((ch) => (
-              <div key={ch.chapterNumber} className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden">
+              <div key={ch.chapterNumber} className="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl overflow-hidden">
                 {editingChapter === ch.chapterNumber ? (
                   <div className="p-4 space-y-3">
                     <input
                       value={editTitle}
                       onChange={(e) => setEditTitle(e.target.value)}
-                      className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-violet-500"
+                      className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-lg px-3 py-2 text-[var(--text-primary)] text-sm focus:outline-none focus:border-violet-500"
                       placeholder="Chapter title"
                     />
                     <textarea
                       value={editSummary}
                       onChange={(e) => setEditSummary(e.target.value)}
                       rows={3}
-                      className="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-violet-500 resize-none"
+                      className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-color)] rounded-lg px-3 py-2 text-[var(--text-primary)] text-sm focus:outline-none focus:border-violet-500 resize-none"
                       placeholder="Chapter summary"
                     />
                     <div className="flex gap-2">
                       <button onClick={saveEditChapter} className="flex items-center gap-1.5 bg-violet-600 hover:bg-violet-500 text-white text-xs px-3 py-1.5 rounded-lg transition-colors">
                         <Check size={13} /> Save
                       </button>
-                      <button onClick={() => setEditingChapter(null)} className="flex items-center gap-1.5 bg-neutral-800 hover:bg-neutral-700 text-neutral-300 text-xs px-3 py-1.5 rounded-lg transition-colors">
+                      <button onClick={() => setEditingChapter(null)} className="flex items-center gap-1.5 bg-[var(--bg-tertiary)] hover:bg-[var(--border-color)] text-[var(--text-secondary)] text-xs px-3 py-1.5 rounded-lg transition-colors">
                         <X size={13} /> Cancel
                       </button>
                     </div>
@@ -230,28 +230,28 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
                   <>
                     <button
                       onClick={() => setExpandedChapter(expandedChapter === ch.chapterNumber ? null : ch.chapterNumber)}
-                      className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-neutral-800/50 transition-colors"
+                      className="w-full flex items-center gap-3 px-4 py-3 text-left hover:bg-[var(--bg-tertiary)]/50 transition-colors"
                     >
                       <span className="text-xs font-bold text-violet-400 w-6 flex-shrink-0">
                         {ch.chapterNumber}
                       </span>
-                      <span className="flex-1 text-sm font-medium text-white truncate">{ch.title}</span>
+                      <span className="flex-1 text-sm font-medium text-[var(--text-primary)] truncate">{ch.title}</span>
                       <div className="flex items-center gap-2 flex-shrink-0">
                         <button
                           onClick={(e) => { e.stopPropagation(); startEditChapter(ch); }}
-                          className="p-1 text-neutral-600 hover:text-violet-400 transition-colors"
+                          className="p-1 text-[var(--text-muted)] hover:text-violet-400 transition-colors"
                         >
                           <Pencil size={13} />
                         </button>
                         {expandedChapter === ch.chapterNumber
-                          ? <ChevronUp size={15} className="text-neutral-500" />
-                          : <ChevronDown size={15} className="text-neutral-500" />
+                          ? <ChevronUp size={15} className="text-[var(--text-muted)]" />
+                          : <ChevronDown size={15} className="text-[var(--text-muted)]" />
                         }
                       </div>
                     </button>
                     {expandedChapter === ch.chapterNumber && (
                       <div className="px-4 pb-4 pt-0">
-                        <p className="text-sm text-neutral-400 leading-relaxed">{ch.summary}</p>
+                        <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{ch.summary}</p>
                       </div>
                     )}
                   </>
@@ -264,7 +264,7 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
 
       {/* Chat Section */}
       {outline.length > 0 && (
-        <div className="border-t border-neutral-800 bg-neutral-950 flex-shrink-0">
+        <div className="border-t border-[var(--border-color)] bg-[var(--bg-primary)] flex-shrink-0">
           {/* Chat History */}
           {chatHistory.length > 0 && (
             <div className="max-h-48 overflow-y-auto px-4 py-3 space-y-2">
@@ -273,7 +273,7 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
                   <div className={`max-w-[85%] rounded-xl px-3 py-2 text-sm ${
                     msg.role === 'user'
                       ? 'bg-violet-600 text-white'
-                      : 'bg-neutral-800 text-neutral-200'
+                      : 'bg-[var(--bg-tertiary)] text-[var(--text-secondary)]'
                   }`}>
                     {msg.content}
                   </div>
@@ -281,7 +281,7 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
               ))}
               {isChatting && (
                 <div className="flex justify-start">
-                  <div className="bg-neutral-800 rounded-xl px-3 py-2">
+                  <div className="bg-[var(--bg-tertiary)] rounded-xl px-3 py-2">
                     <Loader2 size={14} className="text-violet-400 animate-spin" />
                   </div>
                 </div>
@@ -292,21 +292,21 @@ export default function OutlineEditor({ book, apiKey, onBack, onUpdate, onApprov
 
           {/* Chat Input */}
           <div className="px-4 py-3 flex gap-2">
-            <div className="flex-1 flex items-center gap-2 bg-neutral-900 border border-neutral-700 rounded-xl px-3 py-2">
-              <Edit3 size={14} className="text-neutral-500 flex-shrink-0" />
+            <div className="flex-1 flex items-center gap-2 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl px-3 py-2">
+              <Edit3 size={14} className="text-[var(--text-muted)] flex-shrink-0" />
               <input
                 type="text"
                 value={userInput}
                 onChange={(e) => setUserInput(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && !e.shiftKey && handleChat()}
                 placeholder='e.g. "Add a plot twist in chapter 5"'
-                className="flex-1 bg-transparent text-white text-sm placeholder-neutral-500 focus:outline-none"
+                className="flex-1 bg-transparent text-[var(--text-primary)] text-sm placeholder-[var(--text-muted)] focus:outline-none"
               />
             </div>
             <button
               onClick={handleChat}
               disabled={!userInput.trim() || isChatting}
-              className="p-2.5 bg-violet-600 hover:bg-violet-500 disabled:bg-neutral-800 disabled:text-neutral-600 text-white rounded-xl transition-colors flex-shrink-0"
+              className="p-2.5 bg-violet-600 hover:bg-violet-500 disabled:bg-[var(--bg-tertiary)] disabled:text-[var(--text-muted)] text-white rounded-xl transition-colors flex-shrink-0"
             >
               <Send size={16} />
             </button>

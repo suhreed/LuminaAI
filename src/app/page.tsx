@@ -23,7 +23,7 @@ interface AppState {
 export default function Home() {
   const [appState, setAppState] = useState<AppState>({
     books: [],
-    settings: { geminiApiKey: '' },
+    settings: { geminiApiKey: '', theme: 'dark' },
     hydrated: false,
   });
   const [view, setView] = useState<AppView>({ type: 'home' });
@@ -83,14 +83,14 @@ export default function Home() {
 
   if (!hydrated) {
     return (
-      <main className="min-h-screen bg-neutral-950 flex items-center justify-center">
+      <main className="min-h-screen bg-[var(--bg-primary)] flex items-center justify-center">
         <div className="w-8 h-8 border-2 border-violet-500 border-t-transparent rounded-full animate-spin" />
       </main>
     );
   }
 
   return (
-    <main className="min-h-screen bg-neutral-950 max-w-lg mx-auto relative">
+    <main className="min-h-screen bg-[var(--bg-primary)] max-w-lg mx-auto relative">
       {/* Settings Modal */}
       {showSettings && (
         <SettingsModal

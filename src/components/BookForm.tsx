@@ -36,18 +36,18 @@ export default function BookForm({ book, onBack, onSave, isNew = false }: Props)
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-950">
+    <div className="flex flex-col min-h-screen bg-[var(--bg-primary)]">
       {/* Header */}
-      <header className="flex items-center gap-3 px-4 py-4 border-b border-neutral-800">
+      <header className="flex items-center gap-3 px-4 py-4 border-b border-[var(--border-color)]">
         <button
           onClick={onBack}
-          className="p-2 rounded-lg text-neutral-400 hover:text-white hover:bg-neutral-800 transition-colors"
+          className="p-2 rounded-lg text-[var(--text-muted)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-tertiary)] transition-colors"
         >
           <ArrowLeft size={20} />
         </button>
         <div className="flex items-center gap-2">
           <BookOpen size={20} className="text-violet-400" />
-          <h1 className="text-lg font-semibold text-white">
+          <h1 className="text-lg font-semibold text-[var(--text-primary)]">
             {isNew ? 'New Book' : 'Edit Book Details'}
           </h1>
         </div>
@@ -57,21 +57,21 @@ export default function BookForm({ book, onBack, onSave, isNew = false }: Props)
       <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto px-4 py-6 space-y-5">
         {/* Title */}
         <div className="space-y-1.5">
-          <label className="text-sm font-medium text-neutral-300">Book Title *</label>
+          <label className="text-sm font-medium text-[var(--text-secondary)]">Book Title *</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="e.g. The Last Starkeeper"
             required
-            className="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-violet-500 text-sm"
+            className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-violet-500 text-sm"
           />
         </div>
 
         {/* Topic / Premise */}
         <div className="space-y-1.5">
-          <label className="text-sm font-medium text-neutral-300">Topic / Premise *</label>
-          <p className="text-xs text-neutral-500">
+          <label className="text-sm font-medium text-[var(--text-secondary)]">Topic / Premise *</label>
+          <p className="text-xs text-[var(--text-muted)]">
             Describe your book&apos;s core idea, plot, or premise. The more detail, the better the AI output.
           </p>
           <textarea
@@ -80,17 +80,17 @@ export default function BookForm({ book, onBack, onSave, isNew = false }: Props)
             placeholder="e.g. A young astronomer discovers an ancient map hidden in a dying star's light, leading her on a journey across galaxies to prevent the universe's collapse..."
             required
             rows={5}
-            className="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-4 py-3 text-white placeholder-neutral-500 focus:outline-none focus:border-violet-500 text-sm resize-none"
+            className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl px-4 py-3 text-[var(--text-primary)] placeholder-[var(--text-muted)] focus:outline-none focus:border-violet-500 text-sm resize-none"
           />
         </div>
 
         {/* Genre */}
         <div className="space-y-1.5">
-          <label className="text-sm font-medium text-neutral-300">Genre</label>
+          <label className="text-sm font-medium text-[var(--text-secondary)]">Genre</label>
           <select
             value={genre}
             onChange={(e) => setGenre(e.target.value)}
-            className="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-violet-500 text-sm appearance-none"
+            className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-violet-500 text-sm appearance-none"
           >
             {GENRES.map((g) => (
               <option key={g} value={g}>{g}</option>
@@ -100,11 +100,11 @@ export default function BookForm({ book, onBack, onSave, isNew = false }: Props)
 
         {/* Target Language */}
         <div className="space-y-1.5">
-          <label className="text-sm font-medium text-neutral-300">Target Language</label>
+          <label className="text-sm font-medium text-[var(--text-secondary)]">Target Language</label>
           <select
             value={targetLanguage}
             onChange={(e) => setTargetLanguage(e.target.value)}
-            className="w-full bg-neutral-900 border border-neutral-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-violet-500 text-sm appearance-none"
+            className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl px-4 py-3 text-[var(--text-primary)] focus:outline-none focus:border-violet-500 text-sm appearance-none"
           >
             {LANGUAGES.map((l) => (
               <option key={l} value={l}>{l}</option>
@@ -116,7 +116,7 @@ export default function BookForm({ book, onBack, onSave, isNew = false }: Props)
         <button
           type="submit"
           disabled={!title.trim() || !topic.trim()}
-          className="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 disabled:bg-neutral-700 disabled:text-neutral-500 text-white font-medium py-3.5 rounded-xl transition-colors mt-4"
+          className="w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-500 disabled:bg-[var(--bg-tertiary)] disabled:text-[var(--text-muted)] text-white font-medium py-3.5 rounded-xl transition-colors mt-4"
         >
           <Wand2 size={18} />
           {isNew ? 'Create Book & Generate Outline' : 'Save Changes'}

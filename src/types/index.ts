@@ -33,8 +33,11 @@ export interface OutlineChatMessage {
   content: string;
 }
 
+export type Theme = 'dark' | 'light';
+
 export interface AppSettings {
   geminiApiKey: string;
+  theme: Theme;
 }
 
 export type AppView =
