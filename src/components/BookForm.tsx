@@ -11,9 +11,9 @@ const GENRES = [
 ];
 
 const LANGUAGES = [
-  'English', 'Spanish', 'French', 'German', 'Portuguese', 'Italian',
-  'Japanese', 'Chinese (Simplified)', 'Korean', 'Arabic', 'Russian',
-  'Dutch', 'Polish', 'Turkish', 'Hindi',
+  'Arabic', 'Bangla', 'Chinese (Simplified)', 'Dutch', 'English',
+  'French', 'German', 'Hindi', 'Italian', 'Japanese', 'Korean',
+  'Polish', 'Portuguese', 'Russian', 'Spanish', 'Turkish',
 ];
 
 interface Props {
